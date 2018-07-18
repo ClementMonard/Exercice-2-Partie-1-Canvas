@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Exercice 2</title>
+</head>
+<body>
+  <canvas id="sweetHome" height="400px" width="400px">
+    Texte alternatif pour les navigateurs ne supportant pas Canvas.
+  </canvas>
+  <script>
+
+
+  var c = document.getElementById("sweetHome");
+  var canvasHome = c.getContext("2d");
+  var canvasWidth = canvasHeight = 400
+  //rotation 45° du carré / toit
+  canvasHome.translate(canvasWidth/2, canvasWidth/2);
+  canvasHome.rotate((Math.PI / 180)*45);
+  canvasHome.translate(-canvasWidth/2, -canvasWidth/2);
+
+  // toit
+
+  // diagonale du carré/toit doit être = à 200px (largeur maison)
+
+  // La fonction Math.hypot() renvoie la racine carrée de la somme des carrés de ses arguments
+  var squareSide = Math.hypot(200, 200)/2; //environ 141px
+
+  //  Pour tracer un rectangle en donnant sa hauteur, sa largeur et son point de départ pour les coordonnées startx, starty, la fonction fillRect() est indiquée.
+
+  // Un rectangle de dimensions horizontale et verticale égales produira un carré.
+
+  // fillRect(startx, starty, hauteur, largeur)
+  canvasHome.fillStyle = "peru"
+  canvasHome.fillRect(93,93,squareSide,squareSide);
+  //reset rotation de la maison
+  canvasHome.translate(canvasWidth/2, canvasWidth/2);
+  //La propriété Math.PI représente le ratio entre le périmètre d'un cercle et son diamètre
+  canvasHome.rotate(-(Math.PI / 180)*45);
+  canvasHome.translate(-canvasWidth/2, -canvasWidth/2);
+
+  // façade
+  canvasHome.fillStyle = "powderblue";
+  //start à 100 largeur 150 longueur, hauteur de 200 et largeur de 200
+  canvasHome.fillRect(100,150,200,200);
+  //fenêtre gauche
+  canvasHome.fillStyle = "#c9c9c9";
+  //start à 120 largeur 170 longueur, hauteur de 40 et largeur de 40
+  canvasHome.fillRect(120,170,40,40);
+  //fenêtre droite
+  canvasHome.fillStyle = "#c9c9c9";
+  //start à 240 largeur 170 longueur, hauteur de 40 et largeur de 40
+  canvasHome.fillRect(240,170,40,40);
+  //porte
+  canvasHome.fillStyle = "#c9c9c9";
+  //start à 170 largeur 275 longueur, hauteur de 60 et largeur de 75
+  canvasHome.fillRect(170,275,60,75);
+  </script>
+</body>
+</html>
